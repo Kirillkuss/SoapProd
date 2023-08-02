@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:xs="com/itrail/soap/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <xs:getDocumentRequest>
+         <xs:name>sfsdf</xs:name>
+      </xs:getDocumentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
