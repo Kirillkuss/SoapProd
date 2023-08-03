@@ -29,7 +29,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName( "DocumentsPort" );
         wsdl11Definition.setLocationUri( "/ws" );
-        wsdl11Definition.setTargetNamespace( "com/itrail/soap/xsd" );
+        wsdl11Definition.setTargetNamespace( "com/itrail/soap/generated" );
         wsdl11Definition.setSchema( countriesSchema );
         return wsdl11Definition;
     }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="com/itrail/soap"
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="com/itrail/soap/xsd" targetNamespace="com/itrail/soap/xsd">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="com/itrail/generated"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="com/itrail/soap/generated" targetNamespace="com/itrail/soap/generated">
     <wsdl:types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com/itrail/soap/xsd">
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com/itrail/soap/generated">
 
-            <xs:element name="getDocumentRequest">
+            <xs:element name="getDocumentRequestFindById">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="id_document" type="xs:long" />
@@ -12,10 +12,41 @@
                 </xs:complexType>
             </xs:element>
 
-            <xs:element name="getDocumentResponse">
+            <xs:element name="getDocumentRequestFindAll">
+                <xs:complexType>
+                    <xs:sequence>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentRequestAdd">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="document" type="tns:document" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentRequestDelete">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id_document" type="xs:long" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentRequestModify">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document" type="tns:document" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document" type="tns:document" /> 
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -31,36 +62,120 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
+
     </wsdl:types>
-    <wsdl:message name="getDocumentResponse">
-        <wsdl:part element="tns:getDocumentResponse" name="getDocumentResponse">
+
+    <wsdl:message name="getDocumentRequestFindById">
+        <wsdl:part element="tns:getDocumentRequestFindById" name="getDocumentRequestFindById">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:message name="getDocumentRequest">
-        <wsdl:part element="tns:getDocumentRequest" name="getDocumentRequest">
+
+    <wsdl:message name="getDocumentRequestFindAll">
+        <wsdl:part element="tns:getDocumentRequestFindAll" name="getDocumentRequestFindAll">
         </wsdl:part>
     </wsdl:message>
+
+    <wsdl:message name="getDocumentRequestAdd">
+        <wsdl:part element="tns:getDocumentRequestAdd" name="getDocumentRequestAdd">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="getDocumentRequestDelete">
+        <wsdl:part element="tns:getDocumentRequestDelete" name="getDocumentRequestDelete">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="getDocumentRequestModify">
+        <wsdl:part element="tns:getDocumentRequestModify" name="getDocumentRequestModify">
+        </wsdl:part>
+    </wsdl:message>
+
     <wsdl:portType name="DocumentsPort">
-        <wsdl:operation name="getDocument">
-            <wsdl:input message="tns:getDocumentRequest" name="getDocumentRequest"></wsdl:input>
+
+        <wsdl:operation name="getDocumentFindById">
+            <wsdl:input message="tns:getDocumentRequestFindById" name="getDocumentRequestFindById"></wsdl:input>
             <wsdl:output message="tns:getDocumentResponse" name="getDocumentResponse"></wsdl:output>
         </wsdl:operation>
+
+        <wsdl:operation name="getDocumentAll">
+            <wsdl:input message="tns:getDocumentRequestFindAll" name="getDocumentRequestFindAll"></wsdl:input>
+            <wsdl:output message="tns:getDocumentResponse" name="getDocumentResponse"></wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getDocumentAdd">
+            <wsdl:input message="tns:getDocumentRequestAdd" name="getDocumentRequestAdd"></wsdl:input>
+            <wsdl:output message="tns:getDocumentResponse" name="getDocumentResponse"></wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getDocumentDelete">
+            <wsdl:input message="tns:getDocumentRequestDelete" name="getDocumentRequestDelete"></wsdl:input>
+            <wsdl:output message="tns:getDocumentResponse" name="getDocumentResponse"></wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getDocumentModify">
+            <wsdl:input message="tns:getDocumentRequestModify" name="getDocumentRequestModify"></wsdl:input>
+            <wsdl:output message="tns:getDocumentResponse" name="getDocumentResponse"></wsdl:output>
+        </wsdl:operation>
+
     </wsdl:portType>
-    <wsdl:binding name="DocumentsPortSoap11" type="tns:DocumentsPort">
+
+    <wsdl:binding name="DocumentsPortSoap" type="tns:DocumentsPort">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
-        <wsdl:operation name="getDocument">
+
+        <wsdl:operation name="getDocumentFindById">
             <soap:operation soapAction="" />
-            <wsdl:input name="getDocumentRequest">
+            <wsdl:input name="getDocumentRequestFindById">
                 <soap:body use="literal" />
             </wsdl:input>
             <wsdl:output name="getDocumentResponse">
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
+
+        <wsdl:operation name="getDocumentAll">    
+            <wsdl:input name="getDocumentRequestFindAll">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getDocumentResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getDocumentAdd">    
+            <wsdl:input name="getDocumentRequestAdd">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getDocumentResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        
+        <wsdl:operation name="getDocumentDelete">    
+            <wsdl:input name="getDocumentRequestDelete">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getDocumentResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        
+        <wsdl:operation name="getDocumentModify">    
+            <wsdl:input name="getDocumentRequestModify">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getDocumentResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+
     </wsdl:binding>
+
     <wsdl:service name="DocumentsPortService">
-        <wsdl:port binding="tns:DocumentsPortSoap11" name="DocumentsPortSoap11">
+        <wsdl:port binding="tns:DocumentsPortSoap" name="DocumentsPortSoap">
             <soap:address location="http://localhost:8088/ws" />
         </wsdl:port>
     </wsdl:service>
-</wsdl:definitions>
+    
+</wsdl:definitions> 

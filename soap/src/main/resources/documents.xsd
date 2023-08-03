@@ -1,30 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="com/itrail/soap/xsd"
-           targetNamespace="com/itrail/soap/xsd" elementFormDefault="qualified">
-    <xs:element name="getDocumentRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="id_document" type="xs:long" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="com/itrail/soap/generated"
+           targetNamespace="com/itrail/soap/generated" elementFormDefault="qualified">
+           
+           <xs:element name="getDocumentRequestFindById">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id_document" type="xs:long" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
 
-    <xs:element name="getDocumentResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="document" type="tns:document"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+            <xs:element name="getDocumentRequestFindAll">
+                <xs:complexType>
+                    <xs:sequence>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
 
-    <xs:complexType name="document">
-        <xs:sequence>
-                <xs:element name="id_document" type="xs:long" />
-                <xs:element name="type_document" type="xs:string" />
-                <xs:element name="seria" type="xs:string" />
-                <xs:element name="numar" type="xs:string" />
-                <xs:element name="snils" type="xs:string" />
-                <xs:element name="polis" type="xs:string" />
-        </xs:sequence>
-    </xs:complexType>
+            <xs:element name="getDocumentRequestAdd">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document" type="tns:document" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentRequestDelete">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id_document" type="xs:long" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentRequestModify">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document" type="tns:document" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getDocumentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document" type="tns:document" /> 
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:complexType name="document">
+                <xs:sequence>
+                    <xs:element name="id_document" type="xs:long" />
+                    <xs:element name="type_document" type="xs:string" />
+                    <xs:element name="seria" type="xs:string" />
+                    <xs:element name="numar" type="xs:string" />
+                    <xs:element name="snils" type="xs:string" />
+                    <xs:element name="polis" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+     
 </xs:schema>
