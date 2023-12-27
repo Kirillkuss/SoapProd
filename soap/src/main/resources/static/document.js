@@ -1,3 +1,6 @@
+/**
+ * Список всех док черех soap
+ */
 function listDocumentSoap(){
     $(document.getElementById("allSoap")).on( "click",function(){
     let xhr = new XMLHttpRequest();
@@ -11,8 +14,9 @@ function listDocumentSoap(){
     xhr.withCredentials = true;
     xhr.setRequestHeader('Content-Type', 'text/xml');
     xhr.send(sr);
-    xhr.onreadystatechange = function ( event ) {
-            if (xhr.readyState == 4 && xhr.status == 200) {
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {                  
+            if (xhr.status == 200) {
                 var xmlDoc = $.parseXML( xhr.responseText );
                 $xml = $( xmlDoc );
                 value= $xml.find( "ListResponse" );
@@ -29,14 +33,18 @@ function listDocumentSoap(){
                     tr.push('</tr>');
                 }
                 $("tr").not(":first").hide();
-                $('table').append($(tr.join('')));
-            }else{
-                console.log(xhr.status);
+                $('table').append($(tr.join('')));                
+            } else {                               
+                console.log("Server сode: ", xhr.status );
+    
             }
-        };
+        }
+    };
     });
 };
-
+/**
+ * Список всех док черех rest
+ */
 function listDocumentRest(){
     $(document.getElementById("allRest")).on( "click",function(){
         $.getJSON('http://localhost:8082/web/documents/list', function(json) {
@@ -56,32 +64,37 @@ function listDocumentRest(){
             });
         });
 };
-
-function tableClear(){
-    console.log('clear');
+/**
+ * очистка таблицы
+ */
+function tableClear(){  
     $(document.getElementById("allСlear")).on( "click",function(){
        $("tr").not(":first").hide();
     });
 
 };
-
+/**
+ * Поиск по ид for soap
+ */
 function findByIdDocument(){
     $(document.getElementById("findById")).on( "click",function(){
-        var word = $('#wordFound').val();
-
+        var word = $('#idDocument').val();
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://localhost:8088/ws' );
         sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/generated">'+
             '   <soapenv:Header/>'+
             '   <soapenv:Body>'+
             '	  <gen:getDocumentRequestFindById>'+
-            '		 <gen:id_document>1</gen:id_document>'+
+            '		 <gen:id_document> ' + word +'</gen:id_document>'+
             '	  </gen:getDocumentRequestFindById>'+
             '   </soapenv:Body>'+
             '</soapenv:Envelope>';
         xhr.withCredentials = true;
-        xhr.onreadystatechange = function ( event ) {
-                if (xhr.readyState == 4 && xhr.status == 200) {
+        xhr.setRequestHeader('Content-Type', 'text/xml');
+        xhr.send(sr);
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {                  
+                if (xhr.status == 200) {                
                     var xmlDoc = $.parseXML( xhr.responseText );
                     $xml = $( xmlDoc );
                     value= $xml.find( "GetDocumentResponse" );
@@ -97,12 +110,14 @@ function findByIdDocument(){
                         tr.push('</tr>');
                         $("tr").not(":first").hide();
                         $('table').append($(tr.join('')));
-                    }
-                }else{
-                    console.log(xhr.status);
+                    }  
+                } else {                               
+                    console.log("Server сode: ", xhr.status );
+
                 }
-            };
-        xhr.setRequestHeader('Content-Type', 'text/xml');
-        xhr.send(sr);
+            }
+        };
     });
-}
+};
+
+
