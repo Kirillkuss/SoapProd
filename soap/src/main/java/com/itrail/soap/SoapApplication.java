@@ -11,7 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 public class SoapApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SoapApplication.class, args);
+		SpringApplication application = new SpringApplication(SoapApplication.class);
+		application.setAdditionalProfiles("ssl");
+		application.run(args);
 		log.info( "START SOAP");
 	}
 

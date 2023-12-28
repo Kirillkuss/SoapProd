@@ -4,7 +4,7 @@
 function listDocumentSoap(){
     $(document.getElementById("allSoap")).on( "click",function(){
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8088/ws' );
+    xhr.open('POST', 'https://localhost:8088/ws' );
     var sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/generated">' +
             '   <soapenv:Header/> ' +
             '     <soapenv:Body> ' +
@@ -47,7 +47,7 @@ function listDocumentSoap(){
  */
 function listDocumentRest(){
     $(document.getElementById("allRest")).on( "click",function(){
-        $.getJSON('http://localhost:8082/web/documents/list', function(json) {
+        $.getJSON('https://localhost:8082/web/documents/list', function(json) {
             var tr=[];
             for (var i = 0; i < json.length; i++) {
                 tr.push('<tr>');
@@ -80,7 +80,7 @@ function findByIdDocument(){
     $(document.getElementById("findById")).on( "click",function(){
         var word = $('#idDocument').val();
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://localhost:8088/ws' );
+        xhr.open('POST', 'https://localhost:8088/ws' );
         sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/generated">'+
             '   <soapenv:Header/>'+
             '   <soapenv:Body>'+
