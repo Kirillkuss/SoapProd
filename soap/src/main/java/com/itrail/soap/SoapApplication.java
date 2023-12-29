@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import lombok.extern.slf4j.Slf4j;
 
 //http://localhost:8088/ws/documents.wsdl
+//https://localhost:8088/
 
 @Slf4j
 @SpringBootApplication
