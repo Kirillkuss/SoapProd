@@ -1,6 +1,5 @@
 package com.itrail.soap.endpoints;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
@@ -8,7 +7,6 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import com.itrail.soap.genereated.documents.GetDocumentRequestFindById;
 import com.itrail.soap.genereated.patients.GetPatientRequestFindAll;
 import com.itrail.soap.genereated.patients.GetPatientRequestFindById;
 import com.itrail.soap.genereated.patients.Patient;

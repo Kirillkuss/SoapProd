@@ -23,7 +23,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<MessageDispatcherServlet>(servlet, "/ws/*");
     }
- 
+ /** 
     @Bean(name = "documents")
     public DefaultWsdl11Definition defaultWsdl11Definition( XsdSchema countriesSchema ) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
@@ -53,5 +53,5 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public XsdSchema countriesSchemaTwo() {
         return new SimpleXsdSchema(new ClassPathResource("soap/patients/patients.xsd"));
     }
-    
+    */
 }
