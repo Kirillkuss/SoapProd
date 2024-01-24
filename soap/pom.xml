@@ -98,7 +98,8 @@
     				</executions>
     			<configuration>
         		<sources>
-            		<source>src/main/resources/documents.xsd</source>
+            		<source>src/main/resources/soap/documents/documents.xsd</source>
+					<source>src/main/resources/soap/patients/patients.xsd</source>
         		</sources>
         			<outputDirectory>src/main/java</outputDirectory>
         			<clearOutputDir>false</clearOutputDir>

@@ -23,20 +23,35 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<MessageDispatcherServlet>(servlet, "/ws/*");
     }
-
+ 
     @Bean(name = "documents")
     public DefaultWsdl11Definition defaultWsdl11Definition( XsdSchema countriesSchema ) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName( "DocumentsPort" );
         wsdl11Definition.setLocationUri( "/ws" );
-        wsdl11Definition.setTargetNamespace( "com/itrail/soap/generated" );
+        wsdl11Definition.setTargetNamespace( "com/itrail/soap/documents" );
         wsdl11Definition.setSchema( countriesSchema );
         return wsdl11Definition;
     }
 
     @Bean
     public XsdSchema countriesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("documents.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("soap/documents/documents.xsd"));
+    }
+
+    @Bean(name = "patients")
+    public DefaultWsdl11Definition defaultWsdl11DefinitionTwo( XsdSchema countriesSchema ) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName( "PatientsPort" );
+        wsdl11Definition.setLocationUri( "/ws" );
+        wsdl11Definition.setTargetNamespace( "com/itrail/soap/patients" );
+        wsdl11Definition.setSchema( countriesSchema );
+        return wsdl11Definition;
+    }
+
+    @Bean
+    public XsdSchema countriesSchemaTwo() {
+        return new SimpleXsdSchema(new ClassPathResource("soap/patients/patients.xsd"));
     }
     
 }

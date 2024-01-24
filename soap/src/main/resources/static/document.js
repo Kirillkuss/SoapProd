@@ -5,7 +5,7 @@ function listDocumentSoap(){
     $(document.getElementById("allSoap")).on( "click",function(){
     let xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://localhost:8088/ws' );
-    var sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/generated">' +
+    var sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/genereated/documents">' +
             '   <soapenv:Header/> ' +
             '     <soapenv:Body> ' +
             '       <gen:getDocumentRequestFindAll/> ' +
@@ -81,7 +81,7 @@ function findByIdDocument(){
         var word = $('#idDocument').val();
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://localhost:8088/ws' );
-        sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/generated">'+
+        sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="com/itrail/soap/genereated/documents">'+
             '   <soapenv:Header/>'+
             '   <soapenv:Body>'+
             '	  <gen:getDocumentRequestFindById>'+

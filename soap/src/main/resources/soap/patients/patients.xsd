@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="com/itrail/soap/genereated/patients"
+           targetNamespace="com/itrail/soap/genereated/patients" elementFormDefault="qualified">
+
+            <!--xs:include schemaLocation="documents.xsd" /!-->
+
+            <!--xs:import namespace="com/itrail/soap/genereated/documents"  schemaLocation="documents.xsd" /!-->
+            <!--xs:complexType name="document" /!-->
+
+           <xs:element name="getPatientRequestFindById">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id_patient" type="xs:long" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getPatientRequestFindAll">
+                <xs:complexType>
+                    <xs:sequence>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getPatientRequestAdd">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="patient" type="tns:patient" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getPatientResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="patient" type="tns:patient" /> 
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getPatient">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="patient" type="tns:patient" /> 
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:simpleType name="Gender">
+                <xs:restriction base="xs:string">
+                <xs:enumeration value="MAN"/>
+                <xs:enumeration value="WOMAN"/>
+                </xs:restriction>
+            </xs:simpleType>
+
+            
+
+            <xs:complexType name="patient">
+                <xs:sequence>
+                    <xs:element name="id_patient" type="xs:long" />
+                    <xs:element name="surname" type="xs:string" />
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="full_name" type="xs:string" />
+                    <xs:element name="gender" type="tns:Gender" /> 
+                    <xs:element name="phone" type="xs:string" />
+                    <xs:element name="address" type="xs:string" />
+                    <!--xs:element name="document" type="tns:document" /!-->
+                </xs:sequence>
+            </xs:complexType>
+
+</xs:schema>

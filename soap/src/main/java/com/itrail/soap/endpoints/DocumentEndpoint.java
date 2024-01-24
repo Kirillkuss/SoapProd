@@ -1,12 +1,12 @@
 package com.itrail.soap.endpoints;
 
 import com.itrail.soap.repository.JPADocumentRepository;
-import com.itrail.soap.generated.GetDocumentRequestAdd;
-import com.itrail.soap.generated.GetDocumentRequestDelete;
-import com.itrail.soap.generated.GetDocumentRequestFindAll;
-import com.itrail.soap.generated.GetDocumentRequestFindById;
-import com.itrail.soap.generated.GetDocumentRequestModify;
-import com.itrail.soap.generated.GetDocumentResponse;
+import com.itrail.soap.genereated.documents.GetDocumentRequestAdd;
+import com.itrail.soap.genereated.documents.GetDocumentRequestDelete;
+import com.itrail.soap.genereated.documents.GetDocumentRequestFindAll;
+import com.itrail.soap.genereated.documents.GetDocumentRequestFindById;
+import com.itrail.soap.genereated.documents.GetDocumentRequestModify;
+import com.itrail.soap.genereated.documents.GetDocumentResponse;
 import com.itrail.soap.model.ListResponse;
 import java.util.NoSuchElementException;
 import javax.xml.bind.JAXBElement;
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class DocumentEndpoint {
 
-    private static final String NAMESPACE_URI = "com/itrail/soap/generated";
+    private static final String NAMESPACE_URI = "com/itrail/soap/genereated/documents";
 
     private final JPADocumentRepository jpaDocumentRepository;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="com/itrail/generated"
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="com/itrail/soap/generated" targetNamespace="com/itrail/soap/generated">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="com/itrail/soap"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="com/itrail/soap/documents" targetNamespace="com/itrail/soap/genereated/documents">
     <wsdl:types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com/itrail/soap/generated">
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com/itrail/soap/genereated/documents">
 
             <xs:element name="getDocumentRequestFindById">
                 <xs:complexType>
@@ -174,7 +174,7 @@
 
     <wsdl:service name="DocumentsPortService">
         <wsdl:port binding="tns:DocumentsPortSoap" name="DocumentsPortSoap">
-            <soap:address location="http://localhost:8088/ws" />
+            <soap:address location="https://localhost:8088/ws" />
         </wsdl:port>
     </wsdl:service>
     
