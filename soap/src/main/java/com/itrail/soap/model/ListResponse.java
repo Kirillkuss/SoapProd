@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
-import com.itrail.soap.genereated.documents.Document;
+import com.itrail.soap.generated.documents.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

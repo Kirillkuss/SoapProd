@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="com/itrail/soap"
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="com/itrail/soap/genereated/patients" targetNamespace="com/itrail/soap/genereated/patients">
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="com/itrail/soap/generated/patients" targetNamespace="com/itrail/soap/generated/patients">
     <wsdl:types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com/itrail/soap/genereated/patients">
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com/itrail/soap/generated/patients">
 
             <xs:element name="getPatientRequestFindById">
                 <xs:complexType>
@@ -11,7 +11,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-
+            
             <xs:element name="getPatientRequestFindAll">
                 <xs:complexType>
                     <xs:sequence>
@@ -22,7 +22,14 @@
             <xs:element name="getPatientRequestAdd">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="patient" type="tns:patient" />
+                        <xs:element name="id_patient" type="xs:long" />
+                        <xs:element name="surname" type="xs:string" />
+                        <xs:element name="name" type="xs:string" />
+                        <xs:element name="full_name" type="xs:string" />
+                        <xs:element name="gender" type="tns:Gender" /> 
+                        <xs:element name="phone" type="xs:string" />
+                        <xs:element name="address" type="xs:string" />
+                        <xs:element name="id_document" type="xs:long" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -68,7 +75,7 @@
         </wsdl:part>
     </wsdl:message>
 
-    <wsdl:message name="getDocumentRequestAdd">
+    <wsdl:message name="getPatientRequestAdd">
         <wsdl:part element="tns:getPatientRequestAdd" name="getPatientRequestAdd">
         </wsdl:part>
     </wsdl:message>

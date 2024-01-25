@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="com/itrail/soap/generated/patients"
+           targetNamespace="com/itrail/soap/generated/patients" elementFormDefault="qualified">
+
+            <xs:simpleType name="Gender">
+                <xs:restriction base="xs:string">
+                <xs:enumeration value="MAN"/>
+                <xs:enumeration value="WOMAN"/>
+                </xs:restriction>
+            </xs:simpleType>
+</xs:schema>

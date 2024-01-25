@@ -4,7 +4,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import com.itrail.soap.genereated.patients.Patient;
+import com.itrail.soap.generated.patients.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ import lombok.ToString;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ListPatients {
 
-        @XmlElement(required = true)
+    @XmlElement(required = true)
     private List<Patient> patients;
     
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="com/itrail/soap/genereated/documents"
-           targetNamespace="com/itrail/soap/genereated/documents" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="com/itrail/soap/generated/documents"
+           targetNamespace="com/itrail/soap/generated/documents" elementFormDefault="qualified">
            
            <xs:element name="getDocumentRequestFindById">
                 <xs:complexType>
@@ -49,9 +49,6 @@
                 </xs:complexType>
             </xs:element>
 
-
-           <xs:element name="document" type="tns:document"/>
-
             <xs:complexType name="document">
                 <xs:sequence>
                     <xs:element name="id_document" type="xs:long" />
@@ -63,5 +60,4 @@
                 </xs:sequence>
             </xs:complexType>
      
-         
 </xs:schema>
