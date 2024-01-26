@@ -12,6 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 public class SoapApplication {
 
 	public static void main(String[] args) {
+		Runtime.getRuntime().addShutdownHook(new Thread(){
+			public void run(){
+				log.info( "FINISH SOAP");
+			}
+		});
 		SpringApplication application = new SpringApplication(SoapApplication.class);
 		application.setAdditionalProfiles("ssl");
 		application.run(args);

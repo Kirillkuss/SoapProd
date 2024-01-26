@@ -60,6 +60,9 @@ public class DocumentService {
     public  JAXBElement<GetDocumentResponse> getDocumentModyfy( JAXBElement<GetDocumentRequestModify> request ) throws Exception{
         GetDocumentResponse response = new GetDocumentResponse( );
         if( jpaDocumentRepository.findById( request.getValue().getDocument().getIdDocument()).isEmpty()) throw new IllegalAccessException("Документ с таким ИД не существует");
+        if( jpaDocumentRepository.findByNumar( request.getValue().getDocument().getNumar()).isPresent() ) throw new IllegalAccessException("Документ с таким номером документа уже существует");
+        if( jpaDocumentRepository.findByPolis( request.getValue().getDocument().getPolis()).isPresent() ) throw new IllegalAccessException( "Документ с таким полисом уже существует");
+        if( jpaDocumentRepository.findBySnils( request.getValue().getDocument().getSnils()).isPresent() ) throw new IllegalAccessException( "Документ с таким СНИЛСом уже существует");
         response.setDocument(documentMapper.modelToGenerated(jpaDocumentRepository.save( documentMapper.generatedToModel( request.getValue().getDocument() ))) );
         log.info( "getDocumentRequestDelete");
         return createJaxbElement( response, GetDocumentResponse.class );
